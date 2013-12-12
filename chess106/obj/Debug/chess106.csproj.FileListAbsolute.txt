@@ -63,3 +63,6 @@ C:\Users\Henrik\TDDD49\chess106\obj\Debug\chess106.g.resources
 C:\Users\Henrik\TDDD49\chess106\obj\Debug\chess106.Properties.Resources.resources
 C:\Users\Henrik\TDDD49\chess106\obj\Debug\chess106.csproj.GenerateResource.Cache
 C:\Users\Henrik\TDDD49\chess106\obj\Debug\chess106.pdb
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\chess106.exe.config
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106.exe
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106.pdb

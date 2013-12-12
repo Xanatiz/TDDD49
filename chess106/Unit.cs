@@ -25,19 +25,22 @@ namespace chess106
         {
             chessboardArray[5 , 5] = chessboardArray[c, r];
             chessboardArray[c, r] = chessPieces.None;
-            //swap(c, r, c+1, r);
         }
 
-        private void swap(int c, int r, int newc, int newr)
-        {
-            chessPieces Temp = chessboardArray[c, r];
-            chessboardArray[c, r] = chessboardArray[newc, newr];
-            chessboardArray[newc, newr] = Temp;
-        }
+
         public chessPieces getUnit(int x, int y)
         {
             return chessboardArray[x, y];
         }
+
+        public Boolean sameTeam(chessPieces firstPiece, chessPieces secoundPiece){
+            if (secoundPiece != chessPieces.None)
+            {
+
+            }
+            return false;
+        }
+
 
         public String getUnitSource(chessPieces obj)
         {
@@ -86,15 +89,5 @@ namespace chess106
             }
             return returner;
         }
-                
-
-
-        
-
-        
-        
-        
-        
-
     }
 }
