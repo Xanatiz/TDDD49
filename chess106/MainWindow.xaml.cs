@@ -23,7 +23,11 @@ namespace chess106
 
         private Chessboard chess;
         //private Unit unit = new Unit();
-   
+        bool marked = false;
+        int firstClickColumn;
+        int firstClickRow;
+        int secoundClickColumn;
+        int secoundClickRow;
         
         
         public MainWindow()
@@ -46,15 +50,23 @@ namespace chess106
         private void Grid_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
             var element = (UIElement)e.Source;
-            int c = Grid.GetColumn(element);
-            int r = Grid.GetRow(element);
-            chess.unit.move(c, r);
-            chess.updateImage(r,c);
-            chess.updateImage(5, 5); 
-
-            this.DataContext = chess;
+            if(!marked){
+                firstClickColumn = Grid.GetColumn(element);
+                firstClickRow = Grid.GetRow(element);
+                marked = !marked;
+            }
+            else
+            {
+                secoundClickColumn = Grid.GetColumn(element);
+                secoundClickRow = Grid.GetRow(element);
+                chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
+                chess.updateImage(firstClickRow, firstClickColumn);
+                chess.updateImage(secoundClickRow, secoundClickColumn);
+                marked = !marked;
+                this.DataContext = chess;
+            }
+          
         }
-
        
     }
 }

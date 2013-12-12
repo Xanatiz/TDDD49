@@ -66,3 +66,13 @@ C:\Users\Henrik\TDDD49\chess106\obj\Debug\chess106.pdb
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\chess106.exe.config
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106.exe
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106.pdb
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\chess106.exe
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\chess106.pdb
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106.csprojResolveAssemblyReference.cache
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\MainWindow.baml
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\MainWindow.g.cs
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\App.g.cs
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106_MarkupCompile.cache
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106.g.resources
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106.Properties.Resources.resources
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106.csproj.GenerateResource.Cache

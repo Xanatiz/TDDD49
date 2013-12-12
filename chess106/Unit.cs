@@ -10,6 +10,7 @@ namespace chess106
 {
     class Unit 
     {
+        private Rules rules = new Rules();
         private chessPieces[,] chessboardArray = 
         {{chessPieces.BlackRook, chessPieces.BlackKnight, chessPieces.BlackBishop, chessPieces.BlackQueen, chessPieces.BlackKing, chessPieces.BlackBishop, chessPieces.BlackKnight, chessPieces.BlackRook},
         {chessPieces.BlackPawn, chessPieces.BlackPawn, chessPieces.BlackPawn, chessPieces.BlackPawn, chessPieces.BlackPawn, chessPieces.BlackPawn, chessPieces.BlackPawn, chessPieces.BlackPawn},
@@ -20,11 +21,35 @@ namespace chess106
         {chessPieces.WhitePawn, chessPieces.WhitePawn, chessPieces.WhitePawn, chessPieces.WhitePawn, chessPieces.WhitePawn, chessPieces.WhitePawn, chessPieces.WhitePawn, chessPieces.WhitePawn},
         {chessPieces.WhiteRook, chessPieces.WhiteKnight, chessPieces.WhiteBishop, chessPieces.WhiteQueen, chessPieces.WhiteKing, chessPieces.WhiteBishop, chessPieces.WhiteKnight, chessPieces.WhiteRook}};
 
-        public void move(int r, int c)
+        public void move(int fromColumn, int fromRow, int toColumn, int toRow)
         //r and c is inverted from function call
         {
-            chessboardArray[5 , 5] = chessboardArray[c, r];
-            chessboardArray[c, r] = chessPieces.None;
+            int black = 1;
+            int white = -1;
+            switch (getUnit(fromRow, fromColumn))
+            {
+                case chessPieces.BlackBishop:
+                    {
+                        if (rules.bishop(fromRow, fromColumn, toRow, toColumn))
+                        {
+                            chessboardArray[toRow, toColumn] = chessPieces.BlackBishop;
+                        }
+                        break;
+                    }
+                case chessPieces.BlackPawn:
+                    {
+                        if (rules.pawn(fromRow, fromColumn, toRow, toColumn, black))
+                        {
+                            chessboardArray[toRow, toColumn] = chessPieces.BlackPawn;
+                            chessboardArray[fromRow, fromColumn] = chessPieces.None;
+                        }
+                        break;
+                    }
+            
+            }
+            chessboardArray[fromRow, fromColumn] = chessPieces.None;
+
+
         }
 
 

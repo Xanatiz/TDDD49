@@ -11,6 +11,10 @@ namespace chess106
 
         public Boolean bishop(int fromX, int fromY, int toX, int toY)
         {
+            int deltaY = Math.Abs(toY - fromY);
+            if(Math.Abs(toY - fromY)==0)
+                return false;
+
             return ((Math.Abs(toX - fromX) / Math.Abs(toY - fromY)) == 1);
         }
 
