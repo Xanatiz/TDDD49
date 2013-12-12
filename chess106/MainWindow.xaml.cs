@@ -54,6 +54,9 @@ namespace chess106
                 firstClickColumn = Grid.GetColumn(element);
                 firstClickRow = Grid.GetRow(element);
                 marked = !marked;
+                chess.get_markedColumn(firstClickColumn);
+                chess.get_markedRow(firstClickRow);
+                chess.get_opacity(marked);
             }
             else
             {
@@ -63,6 +66,7 @@ namespace chess106
                 chess.updateImage(firstClickRow, firstClickColumn);
                 chess.updateImage(secoundClickRow, secoundClickColumn);
                 marked = !marked;
+                chess.get_opacity(marked);
                 this.DataContext = chess;
             }
           

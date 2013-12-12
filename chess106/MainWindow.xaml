@@ -31,8 +31,11 @@
         
         
         <!-- 64 rectangles that are placed inside the grid with alternating colours between white and black. -->
+
+        <Rectangle Grid.Column="{Binding markedColumn}" Fill="Blue" HorizontalAlignment="Left" Height="49"  Grid.Row="{Binding markedRow}" Stroke="Black" VerticalAlignment="Top" Width="52" Opacity="{Binding opacatiy}" />
         
-        <Rectangle Grid.Column="3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="49"  Grid.Row="3" Stroke="Black" VerticalAlignment="Top" Width="52"/>
+        
+        <Rectangle Grid.Column="3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="49"  Grid.Row="3" Stroke="Black" VerticalAlignment="Top" Width="52" Opacity="1" />
         <Rectangle Grid.Column="4" Fill="Black" HorizontalAlignment="Left" Height="49"  Grid.Row="3" Stroke="Black" VerticalAlignment="Top" Width="52"/>
         <Rectangle Grid.Column="4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="49"  Grid.Row="4" Stroke="Black" VerticalAlignment="Top" Width="52"/>
         <Rectangle Grid.Column="3" Fill="Black" HorizontalAlignment="Left" Height="49"  Grid.Row="4" Stroke="Black" VerticalAlignment="Top" Width="52"/>

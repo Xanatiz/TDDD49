@@ -14,6 +14,27 @@ namespace chess106
 
         public Unit unit = new Unit();
 
+
+        //these highlight marked rectangle;
+        public int markedColumn { get; set; }
+        public void get_markedColumn(int column) { markedColumn = column; OnPropertyChanged("markedColumn"); }
+
+        public int markedRow { get; set; }
+        public void get_markedRow(int row) { markedRow = row; OnPropertyChanged("markedRow"); }
+
+        public double opacity { get; set; }
+
+        public void get_opacity(bool marked) 
+        {
+            if (marked)
+                opacity = 0.25;
+            else 
+                opacity = 0; 
+            OnPropertyChanged("opacity"); 
+        }
+
+
+
         public string A8 { get; set; }
         public string A7 { get; set; }
         public string A6 { get; set; }
@@ -221,6 +242,7 @@ namespace chess106
                 case "77": { get_H1(source); break; }
             }
         }
+
 
 
 
