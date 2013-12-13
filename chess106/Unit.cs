@@ -19,17 +19,36 @@ namespace chess106
                                               { new Pawn(6, 0, Team.WHITE), new Pawn(6, 1, Team.WHITE), new Pawn(6, 2, Team.WHITE), new Pawn(6, 3, Team.WHITE), new Pawn(6, 4, Team.WHITE), new Pawn(6, 5, Team.WHITE), new Pawn(6, 6, Team.WHITE), new Pawn(6, 7, Team.WHITE) },
                                               { new Rook(7, 0, Team.WHITE), new Knight(7, 1, Team.WHITE), new Bishop(7, 2, Team.WHITE), new Queen(7, 3, Team.WHITE), new King(7, 4, Team.WHITE), new Bishop(7, 5, Team.WHITE), new Knight(7, 6, Team.WHITE), new Rook(7, 7, Team.WHITE)}};
 
-        public void move(int fromColumn, int fromRow, int toColumn, int toRow)
+        public bool move(int fromColumn, int fromRow, int toColumn, int toRow)
         {
-            Pieces temp;
-            if(chessboardArray[fromRow, fromColumn].isMovePossible(toColumn, toRow))
+            bool isMovePossible = chessboardArray[fromRow, fromColumn].isMovePossible(toColumn, toRow);
+            if(isMovePossible)
             {
-                temp = chessboardArray[toRow, toColumn];
-                chessboardArray[toRow, toColumn] = chessboardArray[fromRow, fromColumn];
-                chessboardArray[fromRow, fromColumn] = temp;
+                //swapInnerCordinates(chessboardArray[fromRow, fromColumn], toColumn, toRow);
+                swapPiecesInBoard(chessboardArray[fromRow, fromColumn], chessboardArray[toRow, toColumn]);
             }
+            System.Diagnostics.Debug.WriteLine(isMovePossible.ToString());
+            return isMovePossible;
         }
 
+        public void swapInnerCordinates(Pieces piece, int toX, int toY)
+        {
+            int tempX, tempY;
+            tempX = piece.getX();
+            tempY = piece.getY();
+            piece.setX(toX);
+            piece.setY(toY);
+            chessboardArray[toY, toX].setX(tempX);
+            chessboardArray[toY, toX].setY(tempY);
+        }
+
+        public void swapPiecesInBoard(Pieces piece1, Pieces piece2)
+        {
+            Pieces temp = piece1;
+            piece1 = piece2;
+            piece2 = temp;
+
+        }
       
 
         public Pieces getUnit(int fromRow, int fromColumn)
