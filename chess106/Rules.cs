@@ -52,6 +52,26 @@ namespace chess106
         {
             return (toX - fromX == direction && Math.Abs(toY - fromY) == 1);
         }
+        
+        public Boolean isFreePath(int fromX, int fromY, int toX, int toY)
+        {
+            int xDirection = (toX - fromX);
+            int yDirection = (toY - fromY);
+
+            while (fromX != toX && fromY != toY)
+            {
+                if (xDirection != 0)  
+                    fromX += (xDirection / Math.Abs(xDirection));
+                if(yDirection != 0)
+                    fromY += (yDirection / Math.Abs(yDirection));
+
+                if(getUnit(fromX, fromY) != chessPieces.None){
+                    return false;
+                }
+
+            }
+            return true;
+        }
 
     }
 }
