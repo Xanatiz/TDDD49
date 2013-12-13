@@ -22,12 +22,12 @@ namespace chess106
         public int markedRow { get; set; }
         public void get_markedRow(int row) { markedRow = row; OnPropertyChanged("markedRow"); }
 
-        public double opacity { get; set; }
+        public int opacity { get; set; }
 
         public void get_opacity(bool marked) 
         {
             if (marked)
-                opacity = 0.25;
+                opacity = 1;
             else 
                 opacity = 0; 
             OnPropertyChanged("opacity"); 

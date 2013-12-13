@@ -33,6 +33,7 @@ namespace chess106
                         if (rules.bishop(fromRow, fromColumn, toRow, toColumn))
                         {
                             chessboardArray[toRow, toColumn] = chessPieces.BlackBishop;
+                            chessboardArray[fromRow, fromColumn] = chessPieces.None;
                         }
                         break;
                     }
@@ -47,7 +48,7 @@ namespace chess106
                     }
             
             }
-            chessboardArray[fromRow, fromColumn] = chessPieces.None;
+            
 
 
         }

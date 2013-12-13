@@ -56,7 +56,8 @@ namespace chess106
                 marked = !marked;
                 chess.get_markedColumn(firstClickColumn);
                 chess.get_markedRow(firstClickRow);
-                chess.get_opacity(marked);
+                //chess.get_opacity(marked);
+               // chess.updateImage(firstClickRow, firstClickColumn);
             }
             else
             {
@@ -66,6 +67,8 @@ namespace chess106
                 chess.updateImage(firstClickRow, firstClickColumn);
                 chess.updateImage(secoundClickRow, secoundClickColumn);
                 marked = !marked;
+                //chess.get_markedColumn(secoundClickColumn);
+                //chess.get_markedRow(secoundClickRow);
                 chess.get_opacity(marked);
                 this.DataContext = chess;
             }
