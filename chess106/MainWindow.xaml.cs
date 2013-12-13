@@ -28,7 +28,7 @@ namespace chess106
         int firstClickRow;
         int secoundClickColumn;
         int secoundClickRow;
-        private Pieces[,] board = { { new Rook(0, 0, Team.BLACK) }, { new Knight(0, 1, Team.BLACK) } }; 
+     
         public MainWindow()
         {
             InitializeComponent();
@@ -50,7 +50,24 @@ namespace chess106
         {
             
             var element = (UIElement)e.Source;
-            if(!marked){
+            if (!marked)
+            {
+                firstClickColumn = Grid.GetColumn(element);
+                firstClickRow = Grid.GetRow(element);
+                marked = !marked;
+                   
+            }
+            else
+            {
+                secoundClickColumn = Grid.GetColumn(element);
+                secoundClickRow = Grid.GetRow(element);
+                chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
+                marked = !marked;
+                chess.updateImage(firstClickColumn, firstClickRow);
+                chess.updateImage(secoundClickColumn, secoundClickRow);
+                             
+            }
+         /*   if(!marked){
                 firstClickColumn = Grid.GetColumn(element);
                 firstClickRow = Grid.GetRow(element);
                // if (unit.chessboardArray[firstClickRow, firstClickColumn].getTeam() != Team.NONE)
@@ -82,7 +99,7 @@ namespace chess106
                     this.DataContext = chess;
                 }
             }
-          
+          */
         }
        
     }
