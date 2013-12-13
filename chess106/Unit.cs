@@ -24,8 +24,16 @@ namespace chess106
             bool isMovePossible = chessboardArray[fromRow, fromColumn].isMovePossible(toColumn, toRow);
             if(isMovePossible)
             {
+                Pieces temp = chessboardArray[toRow, toColumn];
+                chessboardArray[toRow, toColumn] = chessboardArray[fromRow, fromColumn];
+                chessboardArray[fromRow, fromColumn] = temp;
+                chessboardArray[fromRow, fromColumn].setX(fromColumn);
+                chessboardArray[fromRow, fromColumn].setY(fromRow);
+                chessboardArray[toRow, toColumn].setX(toColumn);
+                chessboardArray[toRow, toColumn].setY(toRow);
+                
                 //swapInnerCordinates(chessboardArray[fromRow, fromColumn], toColumn, toRow);
-                swapPiecesInBoard(chessboardArray[fromRow, fromColumn], chessboardArray[toRow, toColumn]);
+                //swapPiecesInBoard(chessboardArray[fromRow, fromColumn], chessboardArray[toRow, toColumn]);
             }
             System.Diagnostics.Debug.WriteLine(isMovePossible.ToString());
             return isMovePossible;
@@ -42,14 +50,7 @@ namespace chess106
             chessboardArray[toY, toX].setY(tempY);
         }
 
-        public void swapPiecesInBoard(Pieces piece1, Pieces piece2)
-        {
-            Pieces temp = piece1;
-            piece1 = piece2;
-            piece2 = temp;
-
-        }
-      
+          
 
         public Pieces getUnit(int fromRow, int fromColumn)
         {

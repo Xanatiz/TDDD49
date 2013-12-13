@@ -53,12 +53,12 @@ namespace chess106
             if(!marked){
                 firstClickColumn = Grid.GetColumn(element);
                 firstClickRow = Grid.GetRow(element);
-                if (unit.chessboardArray[firstClickRow, firstClickColumn].getTeam() != Team.NONE)
-                {
+               // if (unit.chessboardArray[firstClickRow, firstClickColumn].getTeam() != Team.NONE)
+                //{
                     marked = !marked;
                     chess.get_markedColumn(firstClickColumn);
                     chess.get_markedRow(firstClickRow);
-                }
+               // }
                 
             }
             else

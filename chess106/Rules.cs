@@ -10,6 +10,7 @@ namespace chess106
     {
 
         static Rules() { ; }
+        public Unit unit;
 
 
         public Boolean bishop(int fromX, int fromY, int toX, int toY)
@@ -71,7 +72,7 @@ namespace chess106
         {
             int xDirection = (toX - fromX);
             int yDirection = (toY - fromY);
-            var startPiece = unit.getUnit(fromX, fromY);
+            var startPiece = unit.getUnit(fromY, fromX);
 
 
             while (fromX != toX && fromY != toY)
