@@ -46,6 +46,43 @@ namespace chess106
                         }
                         break;
                     }
+                case chessPieces.BlackKnight:
+                    {
+                        if (rules.knight(fromRow, fromColumn, toRow, toColumn))
+                        {
+                            chessboardArray[toRow, toColumn] = chessPieces.BlackKnight;
+                            chessboardArray[fromRow, fromColumn] = chessPieces.None;
+                        }
+                        break;
+                    }
+                case chessPieces.BlackQueen:
+                    {
+                        if (rules.queen(fromRow, fromColumn, toRow, toColumn))
+                        {
+                            chessboardArray[toRow, toColumn] = chessPieces.BlackQueen;
+                            chessboardArray[fromRow, fromColumn] = chessPieces.None;
+                        }
+                        break;
+                    }
+                case chessPieces.BlackKing:
+                    {
+                        if (rules.king(fromRow, fromColumn, toRow, toColumn))
+                        {
+                            chessboardArray[toRow, toColumn] = chessPieces.BlackKing;
+                            chessboardArray[fromRow, fromColumn] = chessPieces.None;
+                        }
+                        break;
+                    }
+                case chessPieces.BlackRook:
+                    {
+                        if (rules.rook(fromRow, fromColumn, toRow, toColumn))
+                        {
+                            chessboardArray[toRow, toColumn] = chessPieces.BlackRook;
+                            chessboardArray[fromRow, fromColumn] = chessPieces.None;
+                        }
+                        break;
+                    }
+            
             
             }
             
