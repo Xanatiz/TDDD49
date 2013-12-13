@@ -22,7 +22,7 @@ namespace chess106
     {
 
         private Chessboard chess;
-        //private Unit unit = new Unit();
+        private Unit unit = new Unit();
         bool marked = false;
         int firstClickColumn;
         int firstClickRow;
@@ -53,25 +53,34 @@ namespace chess106
             if(!marked){
                 firstClickColumn = Grid.GetColumn(element);
                 firstClickRow = Grid.GetRow(element);
-                marked = !marked;
-                chess.get_markedColumn(firstClickColumn);
-                chess.get_markedRow(firstClickRow);
-                //chess.get_opacity(marked);
-               // chess.updateImage(firstClickRow, firstClickColumn);
+                if (unit.chessboardArray[firstClickRow, firstClickColumn].getTeam() != Team.NONE)
+                {
+                    marked = !marked;
+                    chess.get_markedColumn(firstClickColumn);
+                    chess.get_markedRow(firstClickRow);
+                }
                 
             }
             else
             {
                 secoundClickColumn = Grid.GetColumn(element);
                 secoundClickRow = Grid.GetRow(element);
-                chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
-                chess.updateImage(firstClickColumn, firstClickRow);
-                chess.updateImage(secoundClickColumn, secoundClickRow);
-                marked = !marked;
-                //chess.get_markedColumn(secoundClickColumn);
-                //chess.get_markedRow(secoundClickRow);
-                chess.get_opacity(marked);
-                this.DataContext = chess;
+                if (unit.sameTeam(unit.chessboardArray[firstClickRow, firstClickColumn], unit.chessboardArray[secoundClickRow, secoundClickColumn]))
+                {
+                    firstClickColumn = secoundClickColumn;
+                    firstClickRow = secoundClickRow;
+                    chess.get_markedColumn(firstClickColumn);
+                    chess.get_markedRow(firstClickRow);
+                }
+                else
+                {
+                    chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
+                    chess.updateImage(firstClickColumn, firstClickRow);
+                    chess.updateImage(secoundClickColumn, secoundClickRow);
+                    marked = !marked;
+                    chess.get_opacity(marked);
+                    this.DataContext = chess;
+                }
             }
           
         }

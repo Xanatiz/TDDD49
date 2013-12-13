@@ -8,9 +8,9 @@ using System.Windows.Controls;
 
 namespace chess106
 {
-    class Unit 
+    public class Unit 
     {
-        static Pieces[,] chessboardArray = { { new Rook(0, 0, Team.BLACK), new Knight(0, 1, Team.BLACK), new Bishop(0, 2, Team.BLACK), new Queen(0, 3, Team.BLACK), new King(0, 4, Team.BLACK), new Bishop(0, 5, Team.BLACK), new Knight(0, 6, Team.BLACK), new Rook(0, 7, Team.BLACK)},
+        public Pieces[,] chessboardArray = { { new Rook(0, 0, Team.BLACK), new Knight(0, 1, Team.BLACK), new Bishop(0, 2, Team.BLACK), new Queen(0, 3, Team.BLACK), new King(0, 4, Team.BLACK), new Bishop(0, 5, Team.BLACK), new Knight(0, 6, Team.BLACK), new Rook(0, 7, Team.BLACK)},
                                               { new Pawn(1, 0, Team.BLACK), new Pawn(1, 1, Team.BLACK), new Pawn(1, 2, Team.BLACK), new Pawn(1, 3, Team.BLACK), new Pawn(1, 4, Team.BLACK), new Pawn(1, 5, Team.BLACK), new Pawn(1, 6, Team.BLACK), new Pawn(1, 7, Team.BLACK) },
                                               { new Pieces(2,0, Team.NONE), new Pieces(2,1, Team.NONE), new Pieces(2,2, Team.NONE), new Pieces(2,3, Team.NONE), new Pieces(2,4, Team.NONE), new Pieces(2,5, Team.NONE), new Pieces(2,6, Team.NONE), new Pieces(2,7, Team.NONE)},
                                               { new Pieces(3,0, Team.NONE), new Pieces(3,1, Team.NONE), new Pieces(3,2, Team.NONE), new Pieces(3,3, Team.NONE), new Pieces(3,4, Team.NONE), new Pieces(3,5, Team.NONE), new Pieces(3,6, Team.NONE), new Pieces(3,7, Team.NONE)},
@@ -30,87 +30,15 @@ namespace chess106
             }
         }
 
-      /*  public void move(int fromColumn, int fromRow, int toColumn, int toRow)
-        //r and c is inverted from function call
-        {
-            int black = 1;
-            int white = -1;
-            switch (getUnit(fromRow, fromColumn))
-            {
-                case chessPieces.BlackBishop:
-                    {
-                        if (rules.bishop(fromRow, fromColumn, toRow, toColumn))
-                        {
-                            chessboardArray[toRow, toColumn] = chessPieces.BlackBishop;
-                            chessboardArray[fromRow, fromColumn] = chessPieces.None;
-                        }
-                        break;
-                    }
-                case chessPieces.BlackPawn:
-                    {
-                        if (rules.pawn(fromRow, fromColumn, toRow, toColumn, black))
-                        {
-                            chessboardArray[toRow, toColumn] = chessPieces.BlackPawn;
-                            chessboardArray[fromRow, fromColumn] = chessPieces.None;
-                        }
-                        break;
-                    }
-                case chessPieces.BlackKnight:
-                    {
-                        if (rules.knight(fromRow, fromColumn, toRow, toColumn))
-                        {
-                            chessboardArray[toRow, toColumn] = chessPieces.BlackKnight;
-                            chessboardArray[fromRow, fromColumn] = chessPieces.None;
-                        }
-                        break;
-                    }
-                case chessPieces.BlackQueen:
-                    {
-                        if (rules.queen(fromRow, fromColumn, toRow, toColumn))
-                        {
-                            chessboardArray[toRow, toColumn] = chessPieces.BlackQueen;
-                            chessboardArray[fromRow, fromColumn] = chessPieces.None;
-                        }
-                        break;
-                    }
-                case chessPieces.BlackKing:
-                    {
-                        if (rules.king(fromRow, fromColumn, toRow, toColumn))
-                        {
-                            chessboardArray[toRow, toColumn] = chessPieces.BlackKing;
-                            chessboardArray[fromRow, fromColumn] = chessPieces.None;
-                        }
-                        break;
-                    }
-                case chessPieces.BlackRook:
-                    {
-                        if (rules.rook(fromRow, fromColumn, toRow, toColumn))
-                        {
-                            chessboardArray[toRow, toColumn] = chessPieces.BlackRook;
-                            chessboardArray[fromRow, fromColumn] = chessPieces.None;
-                        }
-                        break;
-                    }
-            
-            
-            }
-            
-
-
-        }*/
-
+      
 
         public Pieces getUnit(int fromRow, int fromColumn)
         {
             return chessboardArray[fromRow, fromColumn];
         }
 
-        public Boolean sameTeam(chessPieces firstPiece, chessPieces secoundPiece){
-            if (secoundPiece != chessPieces.None)
-            {
-
-            }
-            return false;
+        public Boolean sameTeam(Pieces piece1, Pieces piece2){
+            return piece1.getTeam() == piece2.getTeam();
         }
 
 
