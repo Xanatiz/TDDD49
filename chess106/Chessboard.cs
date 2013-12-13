@@ -168,13 +168,13 @@ namespace chess106
         private void get_H1(string source) { H1 = source; OnPropertyChanged("H1"); }
 
 
-        public void updateImage(int r, int c)
+        public void updateImage(int column, int row)
         {
 
-            var piece = unit.getUnit(r, c).getChessPieces();
+            var piece = unit.getUnit(row, column).getChessPiece();
             string source = unit.getUnitSource(piece);
 
-            switch (r.ToString() + c.ToString())
+            switch (row.ToString() + column.ToString())
             {
                 case "00": { get_A8(source); break; }
                 case "10": { get_A7(source); break; }

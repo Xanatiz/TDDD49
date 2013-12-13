@@ -13,12 +13,16 @@ namespace chess106
         {
             ;
         }
-        public chessPieces getChessPiece()
+        override public chessPieces getChessPiece()
         {
             if (getTeam() == Team.BLACK)
                 return chessPieces.BlackPawn;
             else
                 return chessPieces.WhitePawn;
+        }
+        override public bool isMovePossible(int toRow, int toColumn)
+        {
+            return base.getRule().pawn(getX(), getY(), toRow, toColumn, getTeam());
         }
     }
 }

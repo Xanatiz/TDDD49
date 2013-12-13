@@ -15,11 +15,15 @@ namespace chess106
             ;
         }
 
-        public chessPieces getChessPiece(){
+        override public chessPieces getChessPiece(){
             if (getTeam() == Team.BLACK)
                 return chessPieces.BlackKing;
             else
                 return chessPieces.WhiteKing;
+        }
+        override public bool isMovePossible(int toRow, int toColumn)
+        {
+            return base.getRule().king(getX(), getY(), toRow, toColumn);
         }
     }
 }

@@ -13,12 +13,18 @@ namespace chess106
         {
             ;
         }
-        public chessPieces getChessPiece()
+
+
+        override public chessPieces getChessPiece()
         {
             if (getTeam() == Team.BLACK)
                 return chessPieces.BlackKnight;
             else
                 return chessPieces.WhiteKnight;
+        }
+        override public bool isMovePossible(int toRow, int toColumn)
+        {
+            return base.getRule().knight(getX(), getY(), toRow, toColumn);
         }
     }
 }

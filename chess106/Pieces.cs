@@ -8,6 +8,7 @@ namespace chess106
 {
     public class Pieces
     {
+        private Rules rule = new Rules();
         private int x;
         private int y;
         private Team team;
@@ -54,9 +55,19 @@ namespace chess106
             alive = false;
         }
 
-         public chessPieces getChessPieces()
+        public Rules getRule()
+        {
+            return rule;
+        }
+
+         virtual public chessPieces getChessPiece()
          {
              return chessPieces.None;
+         }
+
+         virtual public bool isMovePossible(int fromX, int fromY)
+         {
+             return false;
          }
 
     }

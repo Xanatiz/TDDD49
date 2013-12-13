@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace chess106
 {
-    class Rules
+    public class Rules
     {
+
+        static Rules() { ; }
+
 
         public Boolean bishop(int fromX, int fromY, int toX, int toY)
         {
@@ -43,13 +46,24 @@ namespace chess106
             return ((Math.Abs(pathX) == 1 && (Math.Abs(pathY) == 0 || Math.Abs(pathY) == 1)) || (Math.Abs(pathY) == 1) && (Math.Abs(pathX) == 0 || Math.Abs(pathX) == 1));
         }
 
-        public Boolean pawn(int fromX, int fromY, int toX, int toY, int direction)
+        public Boolean pawn(int fromX, int fromY, int toX, int toY, Team team)
         {
+            int direction;
+            if (team==Team.BLACK)
+                direction = 1;
+            else
+                direction = -1;
+
             return (toX - fromX == direction && toY - fromY == 0);
         }
 
-        public Boolean pawnRage(int fromX, int fromY, int toX, int toY, int direction)
+        public Boolean pawnRage(int fromX, int fromY, int toX, int toY, Team team)
         {
+            int direction;
+            if (team == Team.BLACK)
+                direction = 1;
+            else
+                direction = -1;
             return (toX - fromX == direction && Math.Abs(toY - fromY) == 1);
         }
         

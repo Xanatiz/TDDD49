@@ -38,7 +38,7 @@ namespace chess106
             //"sets all" units to visible
             for (int i = 0; i < 8; i++){
                 for(int j = 0; j < 8; j++){
-                    chess.updateImage(i,j);
+                    chess.updateImage(j,i);
                 }
             }
             this.DataContext = chess;
@@ -64,9 +64,9 @@ namespace chess106
             {
                 secoundClickColumn = Grid.GetColumn(element);
                 secoundClickRow = Grid.GetRow(element);
-             //   chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
-                chess.updateImage(firstClickRow, firstClickColumn);
-                chess.updateImage(secoundClickRow, secoundClickColumn);
+                chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
+                chess.updateImage(firstClickColumn, firstClickRow);
+                chess.updateImage(secoundClickColumn, secoundClickRow);
                 marked = !marked;
                 //chess.get_markedColumn(secoundClickColumn);
                 //chess.get_markedRow(secoundClickRow);
