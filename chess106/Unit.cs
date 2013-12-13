@@ -24,11 +24,12 @@ namespace chess106
             bool isMovePossible = chessboardArray[fromRow, fromColumn].isMovePossible(toColumn, toRow);
             if(isMovePossible)
             {
-                Pieces temp = chessboardArray[toRow, toColumn];
+                //Pieces temp = chessboardArray[toRow, toColumn];
                 chessboardArray[toRow, toColumn] = chessboardArray[fromRow, fromColumn];
-                chessboardArray[fromRow, fromColumn] = temp;
-                chessboardArray[fromRow, fromColumn].setX(fromColumn);
-                chessboardArray[fromRow, fromColumn].setY(fromRow);
+                //chessboardArray[fromRow, fromColumn] = temp;
+                chessboardArray[fromRow, fromColumn] = new Pieces(fromColumn, fromRow, Team.NONE);
+                //chessboardArray[fromRow, fromColumn].setX(fromColumn);
+                //chessboardArray[fromRow, fromColumn].setY(fromRow);
                 chessboardArray[toRow, toColumn].setX(toColumn);
                 chessboardArray[toRow, toColumn].setY(toRow);
                 

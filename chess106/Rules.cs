@@ -15,16 +15,14 @@ namespace chess106
 
         public Boolean bishop(int fromX, int fromY, int toX, int toY)
         {
-            int deltaY = Math.Abs(toY - fromY);
-            if(Math.Abs(toY - fromY)==0)
-                return false;
-
-            return ((Math.Abs(toX - fromX) / Math.Abs(toY - fromY)) == 1);
+            return ((Math.Abs(toX - fromX) == Math.Abs(toY - fromY)));
         }
 
         public Boolean rook(int fromX, int fromY, int toX, int toY)
         {
-            return (Math.Abs(toX - fromX) == 0 || Math.Abs(toY - fromY) == 0);
+            if(!(Math.Abs(toX - fromX) == 0 )|| Math.Abs(toY - fromY) == 0 ) return true;
+            if(Math.Abs(toX - fromX) == 0 || !(Math.Abs(toY - fromY) == 0)) return true;
+            return false;
         }
 
         public Boolean queen(int fromX, int fromY, int toX, int toY)
@@ -42,20 +40,28 @@ namespace chess106
 
         public Boolean king(int fromX, int fromY, int toX, int toY)
         {
-            int pathX = toX - fromX;
-            int pathY = toY - fromY;
-            return ((Math.Abs(pathX) == 1 && (Math.Abs(pathY) == 0 || Math.Abs(pathY) == 1)) || (Math.Abs(pathY) == 1) && (Math.Abs(pathX) == 0 || Math.Abs(pathX) == 1));
+            int pathX = Math.Abs(toX - fromX);
+            int pathY = Math.Abs(toY - fromY);
+
+            Console.WriteLine("X: " + pathX);
+            Console.WriteLine("Y: " + pathY);
+
+            if ((pathX == 0) && (pathY == 1)) return true;
+            if ((pathX == 1) && (pathY == 0)) return true;
+            if ((pathX == 1) && (pathY == 1)) return true;
+            return false;
         }
 
         public Boolean pawn(int fromX, int fromY, int toX, int toY, Team team)
         {
+            return true;
             int direction;
             if (team==Team.BLACK)
                 direction = 1;
             else
                 direction = -1;
 
-            return (toX - fromX == direction && toY - fromY == 0);
+            return (toX - fromX == 0 && toY - fromY == direction);
         }
 
         public Boolean pawnRage(int fromX, int fromY, int toX, int toY, Team team)

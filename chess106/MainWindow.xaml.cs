@@ -55,6 +55,7 @@ namespace chess106
                 firstClickColumn = Grid.GetColumn(element);
                 firstClickRow = Grid.GetRow(element);
                 marked = !marked;
+                Console.WriteLine("Selected" + unit.getUnit(firstClickRow, firstClickColumn).GetType().Name);
                    
             }
             else
@@ -65,7 +66,7 @@ namespace chess106
                 marked = !marked;
                 chess.updateImage(firstClickColumn, firstClickRow);
                 chess.updateImage(secoundClickColumn, secoundClickRow);
-                             
+                Console.WriteLine("Moved");             
             }
          /*   if(!marked){
                 firstClickColumn = Grid.GetColumn(element);

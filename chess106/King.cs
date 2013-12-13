@@ -23,7 +23,7 @@ namespace chess106
         }
         override public bool isMovePossible(int toRow, int toColumn)
         {
-            return base.getRule().king(getX(), getY(), toRow, toColumn);
+            return base.getRule().king(getX(), getY(), toColumn, toRow);
         }
     }
 }
