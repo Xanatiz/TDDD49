@@ -28,8 +28,7 @@ namespace chess106
         int firstClickRow;
         int secoundClickColumn;
         int secoundClickRow;
-        
-        
+        private Pieces[,] board = { { new Rook(0, 0, Team.BLACK) }, { new Knight(0, 1, Team.BLACK) } }; 
         public MainWindow()
         {
             InitializeComponent();
@@ -49,6 +48,7 @@ namespace chess106
 
         private void Grid_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
+            
             var element = (UIElement)e.Source;
             if(!marked){
                 firstClickColumn = Grid.GetColumn(element);
@@ -58,12 +58,13 @@ namespace chess106
                 chess.get_markedRow(firstClickRow);
                 //chess.get_opacity(marked);
                // chess.updateImage(firstClickRow, firstClickColumn);
+                
             }
             else
             {
                 secoundClickColumn = Grid.GetColumn(element);
                 secoundClickRow = Grid.GetRow(element);
-                chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
+             //   chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
                 chess.updateImage(firstClickRow, firstClickColumn);
                 chess.updateImage(secoundClickRow, secoundClickColumn);
                 marked = !marked;

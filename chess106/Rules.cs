@@ -53,7 +53,7 @@ namespace chess106
             return (toX - fromX == direction && Math.Abs(toY - fromY) == 1);
         }
         
-        public Boolean isFreePath(int fromX, int fromY, int toX, int toY)
+    /*    public Boolean isFreePath(int fromX, int fromY, int toX, int toY)
         {
             int xDirection = (toX - fromX);
             int yDirection = (toY - fromY);
@@ -72,6 +72,6 @@ namespace chess106
             }
             return true;
         }
-
+        */
     }
 }

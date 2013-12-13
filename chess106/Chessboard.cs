@@ -171,7 +171,7 @@ namespace chess106
         public void updateImage(int r, int c)
         {
 
-            var piece = unit.getUnit(r, c);
+            var piece = unit.getUnit(r, c).getChessPieces();
             string source = unit.getUnitSource(piece);
 
             switch (r.ToString() + c.ToString())
