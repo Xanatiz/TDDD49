@@ -81,7 +81,7 @@ namespace chess106
          int yDirection=0;
          int distance = Math.Abs(xPath);
          if (distance < Math.Abs(yPath))
-             distance=Math.Abs(yPath);
+             distance = Math.Abs(yPath);
             
          if (xPath != 0)
              xDirection = (xPath / Math.Abs(xPath));
@@ -90,7 +90,6 @@ namespace chess106
             
          for (int i = 0; i <= distance; i++)
          {
-             
              fromX += xDirection;
              fromY += yDirection;
              Console.WriteLine(unit.getUnit(fromY, fromX).GetType().Name + " " + fromX + " " + fromY);
