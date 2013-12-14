@@ -10,8 +10,8 @@ namespace chess106
     class Rook : Pieces
     {
 
-        public Rook(int x, int y, Team team)
-            : base(x, y, team)
+        public Rook(int y, int x, Team team)
+            : base(y, x, team)
         {
             ;
         }
@@ -25,7 +25,7 @@ namespace chess106
 
         override public bool isMovePossible(int toRow, int toColumn)
         {
-            return base.getRule().rook(getX(), getY(), toRow, toColumn);    
+            return base.getRule().rook(getX(), getY(), toColumn, toRow);    
         }
     }
 }

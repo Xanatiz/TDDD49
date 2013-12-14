@@ -13,10 +13,10 @@ namespace chess106
         private int y;
         private Team team;
         private bool alive;
-        public Pieces(int x, int y, Team team)
+        public Pieces(int y, int x, Team team)
         {
-            this.x = x;
             this.y = y;
+            this.x = x;
             this.team = team;
             this.alive = true;
         }

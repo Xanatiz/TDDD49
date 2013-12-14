@@ -8,8 +8,8 @@ namespace chess106
 {
     class Queen : Pieces
     {
-        public Queen(int x, int y, Team team)
-            : base(x, y, team)
+        public Queen(int y, int x, Team team)
+            : base(y, x, team)
         {
             ;
         }
@@ -22,7 +22,7 @@ namespace chess106
         }
         override public bool isMovePossible(int toRow, int toColumn)
         {
-            return base.getRule().queen(getX(), getY(), toRow, toColumn);
+            return base.getRule().queen(getX(), getY(), toColumn, toRow);
         }
     }
 }

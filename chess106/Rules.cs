@@ -10,19 +10,15 @@ namespace chess106
     {
 
         static Rules() { ; }
-        public Unit unit;
-
-
+        Unit unit = new Unit();
+        
         public Boolean bishop(int fromX, int fromY, int toX, int toY)
         {
             return ((Math.Abs(toX - fromX) == Math.Abs(toY - fromY)));
         }
-
         public Boolean rook(int fromX, int fromY, int toX, int toY)
         {
-            if(!(Math.Abs(toX - fromX) == 0 )|| Math.Abs(toY - fromY) == 0 ) return true;
-            if(Math.Abs(toX - fromX) == 0 || !(Math.Abs(toY - fromY) == 0)) return true;
-            return false;
+            return (Math.Abs(toX - fromX) == 0 || Math.Abs(toY - fromY) == 0);
         }
 
         public Boolean queen(int fromX, int fromY, int toX, int toY)
@@ -32,72 +28,78 @@ namespace chess106
 
         public Boolean knight(int fromX, int fromY, int toX, int toY)
         {
-            int pathX = toX - fromX;
-            int pathY = toY - fromY;
-            return ((Math.Abs(pathX) == 2 && Math.Abs(pathY) == 1) || (Math.Abs(pathX) == 1 && Math.Abs(pathY) == 2));
-
+            return ((Math.Abs(toX - fromX) == 2 && Math.Abs(toY - fromY) == 1) || (Math.Abs(toX - fromX) == 1 && Math.Abs(toY - fromY) == 2));
         }
 
         public Boolean king(int fromX, int fromY, int toX, int toY)
         {
-            int pathX = Math.Abs(toX - fromX);
-            int pathY = Math.Abs(toY - fromY);
-
-            Console.WriteLine("X: " + pathX);
-            Console.WriteLine("Y: " + pathY);
-
-            if ((pathX == 0) && (pathY == 1)) return true;
-            if ((pathX == 1) && (pathY == 0)) return true;
-            if ((pathX == 1) && (pathY == 1)) return true;
+            if (!unit.sameTeam(unit.getUnit(fromY, fromX), unit.getUnit(toY, toX)))
+                return (((Math.Abs(toX - fromX) + Math.Abs(toY - fromY)) == 2) ||((Math.Abs(toX - fromX) + Math.Abs(toY - fromY)) == 1));
             return false;
         }
 
         public Boolean pawn(int fromX, int fromY, int toX, int toY, Team team)
         {
-            return true;
             int direction;
-            if (team==Team.BLACK)
+            bool startPosition = false;
+            if (team == Team.BLACK)
+            {
                 direction = 1;
+                startPosition = (fromY == 1);
+            }
             else
+            {
                 direction = -1;
-
-            return (toX - fromX == 0 && toY - fromY == direction);
+                startPosition = (fromY == 6);
+            }
+            if (unit.isOppositeTeam(unit.getUnit(fromY, fromX), unit.getUnit(toY, toX)))
+                return pawnRage(fromX, fromY, toX, toY, direction);
+            else
+            {
+                if (startPosition && isFreePath(fromX, fromY, toX, toY))
+                    return (toX - fromX == 0 && ((toY - fromY == direction) || toY - fromY == direction * 2));
+                return (toX - fromX == 0 && toY - fromY == direction);
+            }
         }
 
-        public Boolean pawnRage(int fromX, int fromY, int toX, int toY, Team team)
+        public Boolean pawnRage(int fromX, int fromY, int toX, int toY, int direction)
         {
-            int direction;
-            if (team == Team.BLACK)
-                direction = 1;
-            else
-                direction = -1;
-            return (toX - fromX == direction && Math.Abs(toY - fromY) == 1);
+            return (Math.Abs(toX - fromX) == 1 && toY - fromY == direction);
         }
         
      public Boolean isFreePath(int fromX, int fromY, int toX, int toY)
         {
             int xDirection = (toX - fromX);
             int yDirection = (toY - fromY);
-            var startPiece = unit.getUnit(fromY, fromX);
+            //var startPiece = unit.getUnit(fromY, fromX);
 
-
-            while (fromX != toX && fromY != toY)
+            for (int i = 0; i <= xDirection; i++)
             {
-                if (xDirection != 0)  
+                if (xDirection != 0)
                     fromX += (xDirection / Math.Abs(xDirection));
-                if(yDirection != 0)
+                if (yDirection != 0)
                     fromY += (yDirection / Math.Abs(yDirection));
-
-                var testPiece = unit.getUnit(fromX, fromY);
-
-
-                if( !(unit.sameTeam(unit.getUnit(fromX, fromY), startPiece)))
-                {
+                if (unit.getUnit(fromX, fromY).getTeam() != Team.NONE)
                     return false;
-                }
-
             }
             return true;
+               /* while (fromX != toX && fromY != toY)
+                {
+                    if (xDirection != 0)
+                        fromX += (xDirection / Math.Abs(xDirection));
+                    if (yDirection != 0)
+                        fromY += (yDirection / Math.Abs(yDirection));
+
+                    var testPiece = unit.getUnit(fromX, fromY);
+
+
+                    if (!(unit.sameTeam(unit.getUnit(fromX, fromY), startPiece)))
+                    {
+                        return false;
+                    }
+
+                }
+            return true;*/
         }
     }
 }

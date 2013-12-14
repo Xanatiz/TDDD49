@@ -9,8 +9,8 @@ namespace chess106
     class Bishop : Pieces
     {
         
-        public Bishop(int x, int y, Team team)
-            : base(x, y, team)
+        public Bishop(int y, int x, Team team)
+            : base(y, x, team)
         {
             ;
         }
@@ -25,7 +25,7 @@ namespace chess106
         override public bool isMovePossible(int toRow, int toColumn)
         {
 
-            return base.getRule().bishop(getX(), getY(), toRow, toColumn);
+            return base.getRule().bishop(getX(), getY(), toColumn, toRow);
         }
     }
 }

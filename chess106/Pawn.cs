@@ -8,8 +8,8 @@ namespace chess106
 {
     class Pawn : Pieces
     {
-        public Pawn(int x, int y, Team team)
-            : base(x, y, team)
+        public Pawn(int y, int x, Team team)
+            : base(y, x, team)
         {
             ;
         }
@@ -22,7 +22,7 @@ namespace chess106
         }
         override public bool isMovePossible(int toRow, int toColumn)
         {
-            return base.getRule().pawn(getX(), getY(), toRow, toColumn, getTeam());
+            return base.getRule().pawn(getX(), getY(), toColumn, toRow, getTeam());
         }
     }
 }
