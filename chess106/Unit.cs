@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +33,7 @@ namespace chess106
             System.Diagnostics.Debug.WriteLine(isMovePossible.ToString());
             return isMovePossible;
         }
+
         public void printAllBoardInfo()
         {
             for (int i = 0; i < 8; i++)
@@ -68,6 +69,11 @@ namespace chess106
         public Boolean isOppositeTeam(Pieces piece1, Pieces piece2)
         {
             return ((piece1.getTeam() == Team.BLACK && piece2.getTeam() == Team.WHITE) || (piece1.getTeam() == Team.WHITE && piece2.getTeam() == Team.BLACK));
+        }
+
+        public Team teamMoved(Pieces piece)
+        {
+            return piece.getTeam();
         }
 
 
