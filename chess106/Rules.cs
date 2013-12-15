@@ -59,7 +59,7 @@ namespace chess106
                 startPosition = (fromY == 6);
             }
             if (unit.isOppositeTeam(unit.getUnit(fromY, fromX), unit.getUnit(toY, toX)))
-                return pawnRage(fromX, fromY, toX, toY, direction);
+                return (Math.Abs(toX - fromX) == 1 && toY - fromY == direction);
             else
             {
                 if (startPosition && isFreePath(fromX, fromY, toX, toY))
@@ -68,10 +68,6 @@ namespace chess106
             }
         }
 
-        public Boolean pawnRage(int fromX, int fromY, int toX, int toY, int direction)
-        {
-            return (Math.Abs(toX - fromX) == 1 && toY - fromY == direction);
-        }
         
      public Boolean isFreePath(int fromX, int fromY, int toX, int toY)
      {
