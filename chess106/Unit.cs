@@ -25,6 +25,9 @@ namespace chess106
             bool isMovePossible = chessboardArray[fromRow, fromColumn].isMovePossible(toRow, toColumn);
             if(isMovePossible)
             {
+                Console.WriteLine(chessboardArray[toRow, toColumn].GetType().Name);
+                if (chessboardArray[toRow, toColumn].GetType().Name == "King")
+                    lastTeam = Team.NONE;
                 chessboardArray[toRow, toColumn] = chessboardArray[fromRow, fromColumn];
                 chessboardArray[fromRow, fromColumn] = new Pieces(fromRow, fromColumn, Team.NONE);
                 chessboardArray[toRow, toColumn].setX(toColumn);
@@ -35,6 +38,10 @@ namespace chess106
             }
             System.Diagnostics.Debug.WriteLine(isMovePossible.ToString());
             return isMovePossible;
+        }
+        public Team getLastTeam()
+        {
+            return lastTeam;
         }
 
         public void changeTeam()

@@ -60,7 +60,7 @@ namespace chess106
         {
             
             var element = (UIElement)e.Source;
-            if ( marked == "Hidden" )
+            if ( marked == "Hidden" && unit.getLastTeam()!=Team.NONE)
             {
                 firstClickColumn = Grid.GetColumn(element);
                 firstClickRow = Grid.GetRow(element);
