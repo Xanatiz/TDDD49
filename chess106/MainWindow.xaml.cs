@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +28,8 @@ namespace chess106
         int firstClickRow;
         int secoundClickColumn;
         int secoundClickRow;
+        int teamCounter = 0;
+        private Pieces pieces;
      
         public MainWindow()
         {
@@ -43,6 +45,13 @@ namespace chess106
                 }
             }
             this.DataContext = chess;
+        }
+
+        private Boolean isEven(int n)
+        {
+            if (n % 2 == 0)
+                return true;
+            return false;
         }
  
 
@@ -60,8 +69,11 @@ namespace chess106
                 chess.get_markedColumn(firstClickColumn);
                 chess.get_markedRow(firstClickRow);
                 Console.WriteLine("Selected" + unit.getUnit(firstClickRow, firstClickColumn).GetType().Name);
+                var teamPiece = unit.getUnit(firstClickRow, firstClickColumn).getTeam();
+                Console.WriteLine("teamPiece: " + teamPiece);
                    
             }
+               
             else
             {
                 secoundClickColumn = Grid.GetColumn(element);
@@ -73,15 +85,44 @@ namespace chess106
                     chess.get_markedColumn(firstClickColumn);
                     chess.get_markedRow(firstClickRow);
                 }
+                     
                 else
                 {
-                    chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
-                    marked = "Hidden";
-                    chess.get_marked(marked);
-                    chess.updateImage(firstClickRow, firstClickColumn);
-                    chess.updateImage(secoundClickRow, secoundClickColumn);
-                    Console.WriteLine("Moved");             
+                    if (isEven(teamCounter) && unit.getUnit(firstClickRow, firstClickColumn).getTeam() == Team.WHITE)
+                    {
+
+                        chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
+                        marked = "Hidden";
+                        chess.get_marked(marked);
+                        chess.updateImage(firstClickRow, firstClickColumn);
+                        chess.updateImage(secoundClickRow, secoundClickColumn);
+                        Console.WriteLine("Moved");
+                        Console.WriteLine("Team moved: " + unit.teamMoved(unit.getUnit(secoundClickRow, secoundClickColumn)));
+                        Console.WriteLine(teamCounter);
+                        teamCounter++;
+                        Console.WriteLine(teamCounter);
+                        
+                    }
+                    else if (!isEven(teamCounter) && unit.getUnit(firstClickRow, firstClickColumn).getTeam() == Team.BLACK)
+                    {
+                        chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
+                        marked = "Hidden";
+                        chess.get_marked(marked);
+                        chess.updateImage(firstClickRow, firstClickColumn);
+                        chess.updateImage(secoundClickRow, secoundClickColumn);
+                        Console.WriteLine("Moved");
+                        Console.WriteLine("Team moved: " + unit.teamMoved(unit.getUnit(secoundClickRow, secoundClickColumn)));
+                        Console.WriteLine(teamCounter);
+                        teamCounter++;
+                        Console.WriteLine(teamCounter);
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not your turn!");
+                    }
                 }
+                
                 
             }
             this.DataContext = chess;
