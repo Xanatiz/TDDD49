@@ -88,7 +88,7 @@ namespace chess106
          if (yPath != 0)
              yDirection = (yPath / Math.Abs(yPath));
             
-         for (int i = 0; i <= distance; i++)
+         for (int i = 0; i < distance; i++)
          {
              fromX += xDirection;
              fromY += yDirection;

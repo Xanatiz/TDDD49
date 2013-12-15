@@ -23,7 +23,7 @@ namespace chess106
 
         private Chessboard chess;
         private Unit unit = new Unit();
-        bool marked = false;
+        string marked = "Hidden";
         int firstClickColumn;
         int firstClickRow;
         int secoundClickColumn;
@@ -34,11 +34,12 @@ namespace chess106
             InitializeComponent();
 
             chess = new Chessboard { };
-            
+            chess.get_marked(marked);
+
             //"sets all" units to visible
             for (int i = 0; i < 8; i++){
                 for(int j = 0; j < 8; j++){
-                    chess.updateImage(j,i);
+                    chess.updateImage(i,j);
                 }
             }
             this.DataContext = chess;
@@ -50,11 +51,14 @@ namespace chess106
         {
             
             var element = (UIElement)e.Source;
-            if (!marked)
+            if (marked=="Hidden")
             {
                 firstClickColumn = Grid.GetColumn(element);
                 firstClickRow = Grid.GetRow(element);
-                marked = !marked;
+                marked = "Visible";
+                chess.get_marked(marked);
+                chess.get_markedColumn(firstClickColumn);
+                chess.get_markedRow(firstClickRow);
                 Console.WriteLine("Selected" + unit.getUnit(firstClickRow, firstClickColumn).GetType().Name);
                    
             }
@@ -62,28 +66,7 @@ namespace chess106
             {
                 secoundClickColumn = Grid.GetColumn(element);
                 secoundClickRow = Grid.GetRow(element);
-                chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
-                marked = !marked;
-                chess.updateImage(firstClickColumn, firstClickRow);
-                chess.updateImage(secoundClickColumn, secoundClickRow);
-                Console.WriteLine("Moved");             
-            }
-         /*   if(!marked){
-                firstClickColumn = Grid.GetColumn(element);
-                firstClickRow = Grid.GetRow(element);
-               // if (unit.chessboardArray[firstClickRow, firstClickColumn].getTeam() != Team.NONE)
-                //{
-                    marked = !marked;
-                    chess.get_markedColumn(firstClickColumn);
-                    chess.get_markedRow(firstClickRow);
-               // }
-                
-            }
-            else
-            {
-                secoundClickColumn = Grid.GetColumn(element);
-                secoundClickRow = Grid.GetRow(element);
-                if (unit.sameTeam(unit.chessboardArray[firstClickRow, firstClickColumn], unit.chessboardArray[secoundClickRow, secoundClickColumn]))
+                if (unit.sameTeam(unit.getUnit(firstClickRow, firstClickColumn), unit.getUnit(secoundClickRow, secoundClickColumn)))
                 {
                     firstClickColumn = secoundClickColumn;
                     firstClickRow = secoundClickRow;
@@ -93,14 +76,15 @@ namespace chess106
                 else
                 {
                     chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
-                    chess.updateImage(firstClickColumn, firstClickRow);
-                    chess.updateImage(secoundClickColumn, secoundClickRow);
-                    marked = !marked;
-                    chess.get_opacity(marked);
-                    this.DataContext = chess;
+                    marked = "Hidden";
+                    chess.get_marked(marked);
+                    chess.updateImage(firstClickRow, firstClickColumn);
+                    chess.updateImage(secoundClickRow, secoundClickColumn);
+                    Console.WriteLine("Moved");             
                 }
+                
             }
-          */
+            this.DataContext = chess;
         }
        
     }

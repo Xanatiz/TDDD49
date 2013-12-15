@@ -22,15 +22,12 @@ namespace chess106
         public int markedRow { get; set; }
         public void get_markedRow(int row) { markedRow = row; OnPropertyChanged("markedRow"); }
 
-        public double opacity { get; set; }
+        public string marked { get; set; }
 
-        public void get_opacity(bool marked) 
+        public void get_marked(string markedValue) 
         {
-            if (marked)
-                opacity = 0.25;
-            else 
-                opacity = 0; 
-            OnPropertyChanged("opacity"); 
+            marked = markedValue;
+            OnPropertyChanged("marked"); 
         }
 
 
@@ -168,7 +165,7 @@ namespace chess106
         private void get_H1(string source) { H1 = source; OnPropertyChanged("H1"); }
 
 
-        public void updateImage(int column, int row)
+        public void updateImage(int row, int column)
         {
 
             var piece = unit.getUnit(row, column).getChessPiece();
