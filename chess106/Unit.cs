@@ -10,6 +10,7 @@ namespace chess106
 {
     public class Unit 
     {
+        static Team lastTeam = Team.BLACK;
         static Pieces[,] chessboardArray = { { new Rook(0, 0, Team.BLACK), new Knight(0, 1, Team.BLACK), new Bishop(0, 2, Team.BLACK), new Queen(0, 3, Team.BLACK), new King(0, 4, Team.BLACK), new Bishop(0, 5, Team.BLACK), new Knight(0, 6, Team.BLACK), new Rook(0, 7, Team.BLACK)},
                                               { new Pawn(1, 0, Team.BLACK), new Pawn(1, 1, Team.BLACK), new Pawn(1, 2, Team.BLACK), new Pawn(1, 3, Team.BLACK), new Pawn(1, 4, Team.BLACK), new Pawn(1, 5, Team.BLACK), new Pawn(1, 6, Team.BLACK), new Pawn(1, 7, Team.BLACK) },
                                               { new Pieces(2,0, Team.NONE), new Pieces(2,1, Team.NONE), new Pieces(2,2, Team.NONE), new Pieces(2,3, Team.NONE), new Pieces(2,4, Team.NONE), new Pieces(2,5, Team.NONE), new Pieces(2,6, Team.NONE), new Pieces(2,7, Team.NONE)},
@@ -28,10 +29,34 @@ namespace chess106
                 chessboardArray[fromRow, fromColumn] = new Pieces(fromRow, fromColumn, Team.NONE);
                 chessboardArray[toRow, toColumn].setX(toColumn);
                 chessboardArray[toRow, toColumn].setY(toRow);
+                changeTeam();
+                Console.WriteLine(lastTeam.ToString());
                 //printAllBoardInfo();
             }
             System.Diagnostics.Debug.WriteLine(isMovePossible.ToString());
             return isMovePossible;
+        }
+
+        public void changeTeam()
+        {
+            switch (lastTeam)
+            {
+                case Team.BLACK:
+                    {
+                        lastTeam = Team.WHITE;
+                        break;
+                    }
+                case Team.WHITE:
+                    {
+                        lastTeam = Team.BLACK;
+                        break;
+                    }
+            }
+        }
+
+        public bool isTeamsTurn(Pieces piece)
+        {
+            return (piece.getTeam() != Team.NONE && piece.getTeam() != lastTeam);
         }
 
         public void printAllBoardInfo()
@@ -44,19 +69,7 @@ namespace chess106
                 }
             }
         }
-
-        public void swapInnerCordinates(Pieces piece, int toX, int toY)
-        {
-            int tempX, tempY;
-            tempX = piece.getX();
-            tempY = piece.getY();
-            piece.setX(toX);
-            piece.setY(toY);
-            chessboardArray[toY, toX].setX(tempX);
-            chessboardArray[toY, toX].setY(tempY);
-        }
-
-          
+        
 
         public Pieces getUnit(int fromRow, int fromColumn)
         {

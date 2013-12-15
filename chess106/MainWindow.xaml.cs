@@ -28,8 +28,8 @@ namespace chess106
         int firstClickRow;
         int secoundClickColumn;
         int secoundClickRow;
-        int teamCounter = 0;
-        private Pieces pieces;
+       // int teamCounter = 0;
+        //private Pieces pieces;
      
         public MainWindow()
         {
@@ -60,17 +60,20 @@ namespace chess106
         {
             
             var element = (UIElement)e.Source;
-            if (marked=="Hidden")
+            if ( marked == "Hidden" )
             {
                 firstClickColumn = Grid.GetColumn(element);
                 firstClickRow = Grid.GetRow(element);
-                marked = "Visible";
-                chess.get_marked(marked);
-                chess.get_markedColumn(firstClickColumn);
-                chess.get_markedRow(firstClickRow);
-                Console.WriteLine("Selected" + unit.getUnit(firstClickRow, firstClickColumn).GetType().Name);
-                var teamPiece = unit.getUnit(firstClickRow, firstClickColumn).getTeam();
-                Console.WriteLine("teamPiece: " + teamPiece);
+                if(unit.isTeamsTurn(unit.getUnit(firstClickRow, firstClickColumn)))
+                {
+                    marked = "Visible";
+                    chess.get_marked(marked);
+                    chess.get_markedColumn(firstClickColumn);
+                    chess.get_markedRow(firstClickRow);
+                    Console.WriteLine("Selected" + unit.getUnit(firstClickRow, firstClickColumn).GetType().Name);
+                }   
+                //  var teamPiece = unit.getUnit(firstClickRow, firstClickColumn).getTeam();
+                //Console.WriteLine("teamPiece: " + teamPiece);
                    
             }
                
@@ -85,9 +88,17 @@ namespace chess106
                     chess.get_markedColumn(firstClickColumn);
                     chess.get_markedRow(firstClickRow);
                 }
-                     
+
                 else
                 {
+                    chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
+                    marked = "Hidden";
+                    chess.get_marked(marked);
+                    chess.updateImage(firstClickRow, firstClickColumn);
+                    chess.updateImage(secoundClickRow, secoundClickColumn);
+                    Console.WriteLine("Moved");
+                }
+                /*{
                     if (isEven(teamCounter) && unit.getUnit(firstClickRow, firstClickColumn).getTeam() == Team.WHITE)
                     {
 
@@ -121,7 +132,7 @@ namespace chess106
                     {
                         Console.WriteLine("Not your turn!");
                     }
-                }
+                }*/
                 
                 
             }
