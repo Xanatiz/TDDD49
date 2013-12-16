@@ -64,7 +64,6 @@ namespace chess106
                     chess.get_marked(marked);
                     chess.get_markedColumn(firstClickColumn);
                     chess.get_markedRow(firstClickRow);
-                    Console.WriteLine("Selected" + unit.getUnit(firstClickRow, firstClickColumn).GetType().Name);
                 }   
             }      
             else
@@ -86,7 +85,6 @@ namespace chess106
                     chess.get_marked(marked);
                     chess.updateImage(firstClickRow, firstClickColumn);
                     chess.updateImage(secoundClickRow, secoundClickColumn);
-                    Console.WriteLine("Moved");
                 }              
             }
             this.DataContext = chess;
