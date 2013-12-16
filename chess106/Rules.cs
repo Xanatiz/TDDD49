@@ -39,7 +39,7 @@ namespace chess106
         public Boolean king(int fromX, int fromY, int toX, int toY)
         {
             if (!unit.sameTeam(unit.getUnit(fromY, fromX), unit.getUnit(toY, toX)))
-                return (((Math.Abs(toX - fromX) + Math.Abs(toY - fromY)) == 2) ||((Math.Abs(toX - fromX) + Math.Abs(toY - fromY)) == 1));
+                return (((Math.Abs(toX - fromX) == 1) && (Math.Abs(toY - fromY)) == 1) || ((Math.Abs(toX - fromX) + Math.Abs(toY - fromY)) == 1));
             return false;
         }
 
