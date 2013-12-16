@@ -14,7 +14,6 @@ namespace chess106
             ;
         }
 
-
         override public chessPieces getChessPiece()
         {
             if (getTeam() == Team.BLACK)
@@ -22,6 +21,7 @@ namespace chess106
             else
                 return chessPieces.WhiteKnight;
         }
+
         override public bool isMovePossible(int toRow, int toColumn)
         {
             return base.getRule().knight(getX(), getY(), toColumn, toRow);

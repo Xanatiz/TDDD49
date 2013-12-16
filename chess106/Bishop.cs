@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace chess106
 {
     class Bishop : Pieces
-    {
-        
+    { 
         public Bishop(int y, int x, Team team)
             : base(y, x, team)
         {
             ;
         }
+
         override public chessPieces getChessPiece()
         {
             if (getTeam() == Team.BLACK)

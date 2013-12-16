@@ -12,13 +12,12 @@ namespace chess106
         private int x;
         private int y;
         private Team team;
-        private bool alive;
+
         public Pieces(int y, int x, Team team)
         {
             this.y = y;
             this.x = x;
             this.team = team;
-            this.alive = true;
         }
         public int getX()
         {
@@ -45,16 +44,6 @@ namespace chess106
             return team;
         }
         
-        public bool isAlive()
-        {
-            return alive;
-        }
-
-        public void kill()
-        {
-            alive = false;
-        }
-
         public Rules getRule()
         {
             return rule;
@@ -69,6 +58,5 @@ namespace chess106
          {
              return false;
          }
-
     }
 }

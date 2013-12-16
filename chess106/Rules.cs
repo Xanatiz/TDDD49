@@ -8,7 +8,6 @@ namespace chess106
 {
     public class Rules
     {
-
         static Rules() { ; }
         Unit unit = new Unit();
         
@@ -67,14 +66,14 @@ namespace chess106
                 return (toX - fromX == 0 && toY - fromY == direction);
             }
         }
-
-        
+  
      public Boolean isFreePath(int fromX, int fromY, int toX, int toY)
      {
          int xPath = toX - fromX;
          int yPath = toY - fromY;
          int xDirection=0;
          int yDirection=0;
+
          int distance = Math.Abs(xPath);
          if (distance < Math.Abs(yPath))
              distance = Math.Abs(yPath);
@@ -88,7 +87,6 @@ namespace chess106
          {
              fromX += xDirection;
              fromY += yDirection;
-             Console.WriteLine(unit.getUnit(fromY, fromX).GetType().Name + " " + fromX + " " + fromY);
              if (unit.getUnit(fromY, fromX).getTeam() != Team.NONE)
                 return false;
          }

@@ -15,6 +15,7 @@ namespace chess106
         {
             ;
         }
+
         override public chessPieces getChessPiece()
         {
             if (getTeam() == Team.BLACK)

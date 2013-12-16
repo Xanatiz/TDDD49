@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace chess106
 {
-   
-
     public enum chessPieces
     {
         WhiteKing,
@@ -24,7 +22,4 @@ namespace chess106
         BlackPawn,
         None
     }
-
-    
-
 }

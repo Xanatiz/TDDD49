@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace chess106
 {
     class King : Pieces
-    {
-        
+    {    
         public King(int y, int x, Team team)
             : base(y, x, team)
         {

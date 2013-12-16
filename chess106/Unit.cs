@@ -25,7 +25,6 @@ namespace chess106
             bool isMovePossible = chessboardArray[fromRow, fromColumn].isMovePossible(toRow, toColumn);
             if(isMovePossible)
             {
-                Console.WriteLine(chessboardArray[toRow, toColumn].GetType().Name);
                 if (chessboardArray[toRow, toColumn].GetType().Name == "King")
                     lastTeam = Team.NONE;
                 chessboardArray[toRow, toColumn] = chessboardArray[fromRow, fromColumn];
@@ -33,12 +32,10 @@ namespace chess106
                 chessboardArray[toRow, toColumn].setX(toColumn);
                 chessboardArray[toRow, toColumn].setY(toRow);
                 changeTeam();
-                Console.WriteLine(lastTeam.ToString());
-                //printAllBoardInfo();
             }
-            System.Diagnostics.Debug.WriteLine(isMovePossible.ToString());
             return isMovePossible;
         }
+        
         public Team getLastTeam()
         {
             return lastTeam;
@@ -66,18 +63,6 @@ namespace chess106
             return (piece.getTeam() != Team.NONE && piece.getTeam() != lastTeam);
         }
 
-        public void printAllBoardInfo()
-        {
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
-                    Console.WriteLine("Row " + i + " Column " + j + getUnit(i, j).GetType().Name + getUnit(i, j).getY() + getUnit(i, j).getX() + "\n"); 
-                }
-            }
-        }
-        
-
         public Pieces getUnit(int fromRow, int fromColumn)
         {
             return chessboardArray[fromRow, fromColumn];
@@ -86,16 +71,11 @@ namespace chess106
         public Boolean sameTeam(Pieces piece1, Pieces piece2){
             return piece1.getTeam() == piece2.getTeam();
         }
+
         public Boolean isOppositeTeam(Pieces piece1, Pieces piece2)
         {
             return ((piece1.getTeam() == Team.BLACK && piece2.getTeam() == Team.WHITE) || (piece1.getTeam() == Team.WHITE && piece2.getTeam() == Team.BLACK));
         }
-
-        public Team teamMoved(Pieces piece)
-        {
-            return piece.getTeam();
-        }
-
 
         public String getUnitSource(chessPieces obj)
         {
