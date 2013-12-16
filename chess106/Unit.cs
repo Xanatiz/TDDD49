@@ -124,5 +124,10 @@ namespace chess106
             }
             return returner;
         }
+        
+        public void createUnit(Pieces chessUnit)
+        {
+            chessboardArray[chessUnit.getY(), chessUnit.getX()] = chessUnit;
+        }
     }
 }

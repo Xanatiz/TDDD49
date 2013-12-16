@@ -5,3 +5,10 @@ C:\Users\cake\Desktop\TDDD49-master\UnitTestProject1\bin\Debug\chess106.pdb
 C:\Users\cake\Desktop\TDDD49-master\UnitTestProject1\obj\Debug\UnitTestProject1.csprojResolveAssemblyReference.cache
 C:\Users\cake\Desktop\TDDD49-master\UnitTestProject1\obj\Debug\UnitTestProject1.dll
 C:\Users\cake\Desktop\TDDD49-master\UnitTestProject1\obj\Debug\UnitTestProject1.pdb
+C:\Users\Henrik\Documents\GitHub\TDDD49\UnitTestProject1\obj\Debug\UnitTestProject1.csprojResolveAssemblyReference.cache
+C:\Users\Henrik\Documents\GitHub\TDDD49\UnitTestProject1\obj\Debug\UnitTestProject1.dll
+C:\Users\Henrik\Documents\GitHub\TDDD49\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+C:\Users\Henrik\Documents\GitHub\TDDD49\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
+C:\Users\Henrik\Documents\GitHub\TDDD49\UnitTestProject1\bin\Debug\chess106.exe
+C:\Users\Henrik\Documents\GitHub\TDDD49\UnitTestProject1\bin\Debug\chess106.pdb
+C:\Users\Henrik\Documents\GitHub\TDDD49\UnitTestProject1\obj\Debug\UnitTestProject1.pdb
