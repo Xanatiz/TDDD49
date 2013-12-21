@@ -21,7 +21,9 @@ namespace chess106
     public partial class MainWindow : Window
     {
         private Chessboard chess;
+        
         private Unit unit = new Unit();
+
         string marked = "Hidden";
         int firstClickColumn;
         int firstClickRow;
@@ -32,23 +34,22 @@ namespace chess106
         {
             InitializeComponent();
 
-            chess = new Chessboard { };
+            chess = new Chessboard(unit);
             chess.get_marked(marked);
-
-            //"sets all" units to visible
-            for (int i = 0; i < 8; i++){
-                for(int j = 0; j < 8; j++){
-                    chess.updateImage(i,j);
-                }
-            }
+            visualizeAllPieces();
             this.DataContext = chess;
         }
 
-        private Boolean isEven(int n)
+        public void visualizeAllPieces()
         {
-            if (n % 2 == 0)
-                return true;
-            return false;
+            //"sets all" units to visible
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    chess.updateImage(i, j);
+                }
+            }
         }
 
         private void Grid_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
@@ -80,7 +81,7 @@ namespace chess106
 
                 else
                 {
-                    chess.unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
+                    unit.move(firstClickColumn, firstClickRow, secoundClickColumn, secoundClickRow);
                     marked = "Hidden";
                     chess.get_marked(marked);
                     chess.updateImage(firstClickRow, firstClickColumn);
@@ -88,6 +89,18 @@ namespace chess106
                 }              
             }
             this.DataContext = chess;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //save
+            Console.WriteLine("Save button clicked!");
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //load
+            Console.WriteLine("Load button clicked!");
         }
     }
 }

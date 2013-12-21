@@ -8,17 +8,21 @@ namespace chess106
 {
     public class Pieces
     {
-        private Rules rule = new Rules();
-        private int x;
-        private int y;
-        private Team team;
+        public int x {get; set;}
+        public int y {get; set;}
+        public virtual Team team {get; set;}
+        public virtual Rules rule { get; set; }
 
-        public Pieces(int y, int x, Team team)
+        public Pieces(int y, int x, Team team, Rules rule)
         {
             this.y = y;
             this.x = x;
             this.team = team;
+            this.rule = rule;
+
         }
+
+        public Pieces() { }
         public int getX()
         {
             return x;

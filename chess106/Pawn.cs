@@ -8,8 +8,8 @@ namespace chess106
 {
     class Pawn : Pieces
     {
-        public Pawn(int y, int x, Team team)
-            : base(y, x, team)
+        public Pawn(int y, int x, Team team, Rules rule)
+            : base(y, x, team, rule)
         {
             ;
         }

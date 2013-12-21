@@ -8,8 +8,8 @@ namespace chess106
 {
     class Bishop : Pieces
     { 
-        public Bishop(int y, int x, Team team)
-            : base(y, x, team)
+        public Bishop(int y, int x, Team team, Rules rule)
+            : base(y, x, team, rule)
         {
             ;
         }

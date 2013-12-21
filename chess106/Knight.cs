@@ -8,8 +8,8 @@ namespace chess106
 {
     class Knight : Pieces
     {
-        public Knight(int y, int x, Team team)
-            : base(y, x, team)
+        public Knight(int y, int x, Team team, Rules rule)
+            : base(y, x, team, rule)
         {
             ;
         }

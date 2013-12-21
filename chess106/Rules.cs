@@ -8,8 +8,11 @@ namespace chess106
 {
     public class Rules
     {
-        static Rules() { ; }
-        Unit unit = new Unit();
+        private Unit unit;
+        public Rules(Unit unit) 
+        {
+            this.unit = unit;
+        }
         
         public Boolean bishop(int fromX, int fromY, int toX, int toY)
         {

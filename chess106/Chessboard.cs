@@ -11,16 +11,26 @@ namespace chess106
 {
     class Chessboard : INotifyPropertyChanged
     {
-
-        public Unit unit = new Unit();
-
+        private Unit unit;
+        public Chessboard(Unit unit)
+        {
+            this.unit = unit;
+        }
 
         //these highlight marked rectangle;
         public int markedColumn { get; set; }
-        public void get_markedColumn(int column) { markedColumn = column; OnPropertyChanged("markedColumn"); }
+        public void get_markedColumn(int column) 
+        { 
+            markedColumn = column;
+            OnPropertyChanged("markedColumn");
+        }
 
         public int markedRow { get; set; }
-        public void get_markedRow(int row) { markedRow = row; OnPropertyChanged("markedRow"); }
+        public void get_markedRow(int row) 
+        { 
+            markedRow = row;
+            OnPropertyChanged("markedRow");
+        }
 
         public string marked { get; set; }
 
@@ -97,7 +107,7 @@ namespace chess106
         public string H2 { get; set; }
         public string H1 { get; set; }
 
-
+        
 
         private void get_A8(string source) { A8 = source; OnPropertyChanged("A8"); }
         private void get_A7(string source) { A7 = source; OnPropertyChanged("A7"); }
@@ -240,9 +250,6 @@ namespace chess106
             }
         }
 
-
-
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string name)
@@ -253,7 +260,5 @@ namespace chess106
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
-
-
     }
 }

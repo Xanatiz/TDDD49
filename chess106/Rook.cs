@@ -10,8 +10,8 @@ namespace chess106
     class Rook : Pieces
     {
 
-        public Rook(int y, int x, Team team)
-            : base(y, x, team)
+        public Rook(int y, int x, Team team, Rules rule)
+            : base(y, x, team, rule)
         {
             ;
         }

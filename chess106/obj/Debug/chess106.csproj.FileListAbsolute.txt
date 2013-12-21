@@ -89,3 +89,7 @@ C:\Users\cake\Desktop\TDDD49-master\chess106\obj\Debug\chess106_MarkupCompile.ca
 C:\Users\cake\Desktop\TDDD49-master\chess106\obj\Debug\chess106.g.resources
 C:\Users\cake\Desktop\TDDD49-master\chess106\obj\Debug\chess106.Properties.Resources.resources
 C:\Users\cake\Desktop\TDDD49-master\chess106\obj\Debug\chess106.csproj.GenerateResource.Cache
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\EntityFramework.dll
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\EntityFramework.xml
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\EntityFramework.SqlServer.xml
