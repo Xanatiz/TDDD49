@@ -10,12 +10,14 @@ namespace chess106
 {
     public class Unit 
     {
-        public int ID { get; set; }
         private Rules rule;
-       
+        public int ID { get; set; }
+
         public virtual Team lastTeam { get; set; }
-        
-        public virtual Pieces[,] chessboardArray { get; set; }
+ 
+        public virtual List<Pieces> listToDatabase {get; set;}
+
+        private Pieces[,] chessboardArray;
 
         public Unit()
         {
@@ -36,6 +38,35 @@ namespace chess106
                                     { new Rook(7, 0, Team.WHITE, rule), new Knight(7, 1, Team.WHITE, rule), new Bishop(7, 2, Team.WHITE, rule), new Queen(7, 3, Team.WHITE, rule), new King(7, 4, Team.WHITE, rule), new Bishop(7, 5, Team.WHITE, rule), new Knight(7, 6, Team.WHITE, rule), new Rook(7, 7, Team.WHITE, rule)}};
 
         }
+
+        public void convertToList()
+        {
+            listToDatabase = new List<Pieces>{};
+            for( int i = 0 ; i <8; i++)
+            {
+                for( int j = 0 ; j <8; j++)
+                {
+                    listToDatabase.Add(chessboardArray[i,j]);
+                }
+            }
+        }
+
+
+        public void setChessboardArray(List<Pieces> list)
+        {
+            int i =0;
+            while (i < 64)
+            {
+                chessboardArray[list[i].getY(),list[i].getX()] =list[i];
+            }
+            list.Clear();
+        }
+
+        public void setLastTeam(Team team)
+        {
+            lastTeam = team;
+        }
+
         public bool move(int fromColumn, int fromRow, int toColumn, int toRow)
         {
             bool isMovePossible = chessboardArray[fromRow, fromColumn].isMovePossible(toRow, toColumn);

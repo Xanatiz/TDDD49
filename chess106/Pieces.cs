@@ -8,6 +8,7 @@ namespace chess106
 {
     public class Pieces
     {
+        public int ID { get; set; }
         public int x {get; set;}
         public int y {get; set;}
         public virtual Team team {get; set;}

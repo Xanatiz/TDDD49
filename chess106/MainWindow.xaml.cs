@@ -94,20 +94,40 @@ namespace chess106
         {
             //save
             Console.WriteLine("Save button clicked!");
+            unit.convertToList();
             using (var db = new ChessContext())
             {
+
+                var query = from b in db.Units
+                            orderby b.ID
+                            select b;
+                try
+                {
+                    db.Units.RemoveRange(query);
+                    db.SaveChanges();
+                }
+                catch { }
 
                 db.Units.Add(unit);
                 db.SaveChanges();
 
                 var query2 = from b in db.Units
-                            orderby b.lastTeam
+                            orderby b.ID
                             select b;
 
                 foreach (var item in query2)
-                    Console.WriteLine(item.getUnit(1,0).GetType().Name);
-            
+                {
+                    for (int i = 0; i < 8; i++)
+                    {
+                        for (int j = 0; j < 8; j++)
+                        {
+                            Console.WriteLine(item.getUnit(i, j).GetType().Name);
+                        }
+                    }
+                }
+
             }
+            Console.WriteLine("Saved!");
 
         }
 
@@ -115,7 +135,30 @@ namespace chess106
         {
             //load
             Console.WriteLine("Load button clicked!");
+            using (var db = new ChessContext())
+            {
+                var query2 = from b in db.Units
+                             orderby b.ID
+                             select b;
 
+                foreach (var item in query2)
+                {
+                    unit.setChessboardArray(item.listToDatabase);
+                    unit.setLastTeam(item.lastTeam);
+                }
+                foreach (var item in query2)
+                {
+                    for (int i = 0; i < 8; i++)
+                    {
+                        for (int j = 0; j < 8; j++)
+                        {
+                            Console.WriteLine(item.getUnit(i, j).GetType().Name);
+                        }
+                    }
+                }
+            }
+            visualizeAllPieces();
+            Console.WriteLine("Loaded");
         }
     }
 }

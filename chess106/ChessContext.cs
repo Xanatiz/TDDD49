@@ -10,6 +10,6 @@ namespace chess106
     public class ChessContext : DbContext
     {
         public DbSet<Unit> Units { get; set; }
-      //  public DbSet<Pieces> Pieces { get; set; }
+        public DbSet<Pieces> Pieces { get; set; }
     }
 }

@@ -93,3 +93,4 @@ C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\EntityFramework.SqlSe
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\EntityFramework.xml
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106.csprojResolveAssemblyReference.cache
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106.Migrations.InitialCreate.resources
