@@ -10,8 +10,11 @@ namespace chess106
 {
     public class Unit 
     {
-        public virtual Rules rule { get; set; }
+        public int ID { get; set; }
+        private Rules rule;
+       
         public virtual Team lastTeam { get; set; }
+        
         public virtual Pieces[,] chessboardArray { get; set; }
 
         public Unit()
@@ -20,7 +23,6 @@ namespace chess106
             this.lastTeam=Team.BLACK;
             this.chessboardArray = newBoard();
         }
-
 
         public Pieces[,] newBoard()
         {

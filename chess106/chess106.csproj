@@ -60,6 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChessContext.cs" />
     <Compile Include="Pawn.cs" />
     <Compile Include="Queen.cs" />
     <Compile Include="Knight.cs" />

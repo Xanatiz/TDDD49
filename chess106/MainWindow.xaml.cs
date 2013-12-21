@@ -33,7 +33,6 @@ namespace chess106
         public MainWindow()
         {
             InitializeComponent();
-
             chess = new Chessboard(unit);
             chess.get_marked(marked);
             visualizeAllPieces();
@@ -95,12 +94,28 @@ namespace chess106
         {
             //save
             Console.WriteLine("Save button clicked!");
+            using (var db = new ChessContext())
+            {
+
+                db.Units.Add(unit);
+                db.SaveChanges();
+
+                var query2 = from b in db.Units
+                            orderby b.lastTeam
+                            select b;
+
+                foreach (var item in query2)
+                    Console.WriteLine(item.getUnit(1,0).GetType().Name);
+            
+            }
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             //load
             Console.WriteLine("Load button clicked!");
+
         }
     }
 }

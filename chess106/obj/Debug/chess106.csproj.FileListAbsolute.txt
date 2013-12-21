@@ -68,7 +68,6 @@ C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106.exe
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106.pdb
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\chess106.exe
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\chess106.pdb
-C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106.csprojResolveAssemblyReference.cache
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\MainWindow.baml
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\MainWindow.g.cs
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\App.g.cs
@@ -93,3 +92,4 @@ C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\EntityFramework.dll
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\EntityFramework.xml
 C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Henrik\Documents\GitHub\TDDD49\chess106\obj\Debug\chess106.csprojResolveAssemblyReference.cache
