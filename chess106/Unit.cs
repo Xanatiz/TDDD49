@@ -10,9 +10,9 @@ namespace chess106
 {
     public class Unit 
     {
-        private Rules rule;
-        private Team lastTeam;
-        private Pieces[,] chessboardArray;
+        public virtual Rules rule { get; set; }
+        public virtual Team lastTeam { get; set; }
+        public virtual Pieces[,] chessboardArray { get; set; }
 
         public Unit()
         {
