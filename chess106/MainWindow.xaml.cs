@@ -111,22 +111,7 @@ namespace chess106
                 db.Units.Add(unit);
                 db.SaveChanges();
 
-                var query2 = from b in db.Units
-                            orderby b.ID
-                            select b;
-
-                foreach (var item in query2)
-                {
-                    for (int i = 0; i < 8; i++)
-                    {
-                        for (int j = 0; j < 8; j++)
-                        {
-                            Console.WriteLine(item.getUnit(i, j).GetType().Name);
-                        }
-                    }
-                }
-
-            }
+              }
             Console.WriteLine("Saved!");
 
         }
@@ -146,16 +131,7 @@ namespace chess106
                     unit.setChessboardArray(item.listToDatabase);
                     unit.setLastTeam(item.lastTeam);
                 }
-                foreach (var item in query2)
-                {
-                    for (int i = 0; i < 8; i++)
-                    {
-                        for (int j = 0; j < 8; j++)
-                        {
-                            Console.WriteLine(item.getUnit(i, j).GetType().Name);
-                        }
-                    }
-                }
+
             }
             visualizeAllPieces();
             Console.WriteLine("Loaded");
